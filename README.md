@@ -1,0 +1,2 @@
+# generador-magico
+tamos chill
