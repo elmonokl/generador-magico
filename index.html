@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generador de Contraseñas</title>
+  <link rel="stylesheet" href="src/css/styles.css" />
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo">PW</div>
+      <div>
+        <h1>Generador de contraseñas seguras</h1>
+        <p class="lead">Elige longitud y tipos de caracteres, genera y copia al portapapeles.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card controls" aria-labelledby="controlsTitle">
+        <h2 id="controlsTitle" style="font-size:15px; margin:0 0 8px 0">Ajustes</h2>
+
+        <div class="row">
+          <label for="length">Longitud: <strong id="lenLabel">12</strong></label>
+        </div>
+        <input id="length" type="range" min="8" max="20" value="12" />
+
+        <div style="display:flex; gap:12px; margin-top:8px; align-items:center;">
+          <label>Longitud exacta</label>
+          <input id="lengthNum" type="number" min="8" max="20" value="12" aria-label="Longitud de la contraseña" />
+        </div>
+
+        <div style="height:8px"></div>
+
+        <div class="checkboxes">
+          <label class="checkbox"><input id="lowercase" type="checkbox" checked disabled /> Minúsculas</label>
+          <label class="checkbox"><input id="uppercase" type="checkbox" checked /> Mayúsculas</label>
+          <label class="checkbox"><input id="numbers" type="checkbox" checked /> Números</label>
+          <label class="checkbox"><input id="symbols" type="checkbox" /> Símbolos</label>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div style="display:flex; gap:8px">
+          <button id="generateBtn" class="btn">Generar contraseña</button>
+          <button id="randomizeBtn" class="ghost" title="Generar y copiar automáticamente">Generar + Copiar</button>
+        </div>
+
+      </section>
+
+      <aside class="card">
+        <h2 style="margin:0 0 10px 0">Resultado</h2>
+
+        <div class="output">
+          <div id="password" class="password-box" aria-live="polite" tabindex="0">Pulsa "Generar contraseña"</div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <button id="copyBtn" class="btn">Copiar</button>
+            <button id="regenBtn" class="ghost">Regenerar</button>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div class="strength" id="strength">--</div>
+          <div style="color:var(--muted); font-size:13px">Entropía estimada: <strong id="entropy">0</strong> bits</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div id="copiedMsg" style="color:var(--success); display:none">Contraseña copiada ✅</div>
+    </footer>
+  </div>
+
+  <script src="src/js/main.js"></script>
+</body>
+</html>
